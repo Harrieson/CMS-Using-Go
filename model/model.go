@@ -1,11 +1,16 @@
 package model
 
-import "gorm.io/gorm"
+import (
+	"fmt"
+
+	"gorm.io/driver/postgres"
+	"gorm.io/gorm"
+)
 
 var db *gorm.DB
 
 type Goly struct {
-	ID       uint64 `json: "id" gorm:"primaryKey"`
+	ID       uint64 `json:"id" gorm:"primaryKey"`
 	Redirect string `json:"redirect" gorm:"not null"`
 	Goly     string `json:"goly" gorm:"unique;not null"`
 	Clicked  uint64 `json:"clicked"`
@@ -13,7 +18,16 @@ type Goly struct {
 }
 
 func SetUp() {
-	dsn := "host=172.17.0.2 user=admin password=Harr1350n dbname=admin port=5432 sshmode=disbale"
+	dsn := "host=172.17.0.2 user=admin password=Harr1350n dbname=admin port=5432 sslmode=disable"
 
-	gorm.Open()
+	var err error
+	db, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
+
+	if err != nil {
+		panic(err)
+	}
+	err = db.AutoMigrate(&Goly{})
+	if err != nil {
+		fmt.Println(err)
+	}
 }

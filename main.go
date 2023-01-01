@@ -1,5 +1,7 @@
 package main
 
-func main()  {
-	
+import "Go-cms/model"
+
+func main() {
+	model.SetUp()
 }
