@@ -3,7 +3,6 @@ module Go-cms
 go 1.18
 
 require (
-	github.com/gofiber/fiber v1.14.6
 	github.com/gofiber/fiber/v2 v2.40.1
 	gorm.io/driver/postgres v1.4.5
 	gorm.io/gorm v1.24.2
@@ -11,8 +10,6 @@ require (
 
 require (
 	github.com/andybalholm/brotli v1.0.4 // indirect
-	github.com/gofiber/utils v0.0.10 // indirect
-	github.com/gorilla/schema v1.1.0 // indirect
 	github.com/jackc/chunkreader/v2 v2.0.1 // indirect
 	github.com/jackc/pgconn v1.13.0 // indirect
 	github.com/jackc/pgio v1.0.0 // indirect
