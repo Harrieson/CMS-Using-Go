@@ -1,7 +1,11 @@
 Clone the repo on your PC
 
 In the directory /App navigate to views and run 
+    
+    
     yarn install 
+
+
 to install Svelte dependencies
 
 After completion  start by running 
